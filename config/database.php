@@ -2,6 +2,13 @@
 
 use Illuminate\Support\Str;
 
+// ----- For Deployment to Heroku
+// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+// $host = $url["host"] ?? null;
+// $username = $url["user"] ?? null;
+// $password = $url["pass"] ?? null;
+// $database = substr($url["path"], 1);
+//  ---- For Deployment to Heroku
 return [
 
     /*
@@ -44,6 +51,21 @@ return [
         ],
 
         'mysql' => [
+            //  ---- For Deployment to Heroku
+            // 'driver' => 'mysql',
+            // 'host' => $host,
+            // 'port' => env('DB_PORT', '3306'),
+            // 'database' => $database,
+            // 'username' => $username,
+            // 'password' => $password,
+            // 'unix_socket' => env('DB_SOCKET', ''),
+            // 'charset' => 'utf8mb4',
+            // 'collation' => 'utf8mb4_unicode_ci',
+            // 'prefix' => '',
+            // 'strict' => true,
+            // 'engine' => null,
+            //  ---- For Deployment to Heroku
+
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -123,7 +145,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

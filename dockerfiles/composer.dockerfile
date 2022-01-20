@@ -2,4 +2,4 @@ FROM composer:latest
 
 WORKDIR /var/www/html
 
-ENTRYPOINT [ "composer","--ignort-platform-reqs" ]
+ENTRYPOINT [ "composer","--ignore-platform-reqs" ]
